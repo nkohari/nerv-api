@@ -26,7 +26,11 @@ export class NervApiClient {
   private requester: Requester;
 
   constructor(baseUrl: string, options: NervApiClientConfig = {}) {
-    this.requester = new Requester({ baseUrl, ...options });
+    this.requester = new Requester({
+      baseUrl,
+      scheme: options.scheme || 'https',
+      credentials: options.credentials
+    });
     this.agents = new AgentEndpoints(this.requester);
     this.auth = new AuthEndpoints(this.requester);
     this.devices = new DeviceEndpoints(this.requester);

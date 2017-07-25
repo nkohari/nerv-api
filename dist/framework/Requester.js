@@ -12,6 +12,7 @@ var Requester = (function () {
         this.credentials = credentials;
     };
     Requester.prototype.get = function (path, config) {
+        if (config === void 0) { config = {}; }
         return axios_1.default({
             method: 'get',
             url: this.getUrl(path),

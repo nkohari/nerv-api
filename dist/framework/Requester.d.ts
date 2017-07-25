@@ -17,8 +17,8 @@ export declare class Requester {
     constructor(options?: Partial<Requester>);
     setCredentials(credentials: Credentials): void;
     get(path: string, config?: GetRequestConfig): Promise<any>;
-    post(path: string, config?: PostRequestConfig): Promise<any>;
-    put(path: string, config?: PutRequestConfig): Promise<any>;
+    post(path: string, config: PostRequestConfig): Promise<any>;
+    put(path: string, config: PutRequestConfig): Promise<any>;
     getHeaders(): {
         Accept: string;
         'Content-Type': string;
