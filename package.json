@@ -13,6 +13,7 @@
     "clean": "rimraf dist",
     "test": "LOG_LEVEL=fatal jest --forceExit"
   },
+  "pre-commit": ["build"],
   "author": "Nate Kohari",
   "license": "MIT",
   "dependencies": {
@@ -21,6 +22,7 @@
   "devDependencies": {
     "jest": "^20.0.4",
     "nerv-tslint-rules": "github:nkohari/nerv-tslint-rules",
+    "pre-commit": "^1.2.2",
     "tslint": "^5.4.3",
     "typescript": "2.3.3"
   }
