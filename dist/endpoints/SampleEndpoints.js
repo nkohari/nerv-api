@@ -6,7 +6,7 @@ var SampleEndpoints = (function () {
     function SampleEndpoints(requester) {
         this.requester = requester;
     }
-    SampleEndpoints.prototype.listByUser = function (period) {
+    SampleEndpoints.prototype.list = function (period) {
         var url = '/samples';
         var params = { period: period };
         return this.requester.get(url, { params: params }).then(createMany);

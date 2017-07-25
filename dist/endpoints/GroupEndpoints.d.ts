@@ -5,5 +5,5 @@ export declare class GroupEndpoints {
     constructor(requester: Requester);
     get(groupid: string): Promise<Group>;
     update(groupid: string, data: Partial<Group>): Promise<Group>;
-    listByUser(): Promise<Group[]>;
+    list(): Promise<Group[]>;
 }

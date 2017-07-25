@@ -15,7 +15,7 @@ var GroupEndpoints = (function () {
         var url = "/groups/" + groupid;
         return this.requester.put(url, { data: data }).then(createOne);
     };
-    GroupEndpoints.prototype.listByUser = function () {
+    GroupEndpoints.prototype.list = function () {
         var url = '/groups';
         return this.requester.get(url).then(createMany);
     };
