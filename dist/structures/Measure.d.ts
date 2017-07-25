@@ -1,5 +1,5 @@
-import { Identifiable } from '../framework/Identifiable';
-export declare class Measure implements Identifiable {
+import { HasIdentifier } from '../framework/HasIdentifier';
+export declare class Measure implements HasIdentifier {
     id: string;
     time: Date;
     groupid: string;

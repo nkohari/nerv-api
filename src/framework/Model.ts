@@ -1,6 +1,6 @@
-import { Identifiable } from './Identifiable';
+import { HasIdentifier } from './HasIdentifier';
 
-export abstract class Model implements Identifiable {
+export abstract class Model implements HasIdentifier {
 
   id: string;
   created: Date;

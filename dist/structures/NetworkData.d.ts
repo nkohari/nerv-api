@@ -1,5 +1,5 @@
-import { Identifiable } from '../framework/Identifiable';
-export declare class NetworkData implements Identifiable {
+import { HasIdentifier } from '../framework/HasIdentifier';
+export declare class NetworkData implements HasIdentifier {
     id: string;
     time: Date;
     symbol: string;

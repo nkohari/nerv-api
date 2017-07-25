@@ -1,5 +1,5 @@
-import { Identifiable } from '../framework/Identifiable';
-export declare class ExchangeRate implements Identifiable {
+import { HasIdentifier } from '../framework/HasIdentifier';
+export declare class ExchangeRate implements HasIdentifier {
     id: string;
     time: Date;
     symbol: string;

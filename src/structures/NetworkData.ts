@@ -1,6 +1,6 @@
-import { Identifiable } from '../framework/Identifiable';
+import { HasIdentifier } from '../framework/HasIdentifier';
 
-export class NetworkData implements Identifiable {
+export class NetworkData implements HasIdentifier {
 
   id: string;
   time: Date;

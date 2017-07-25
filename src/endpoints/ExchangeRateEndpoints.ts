@@ -12,7 +12,7 @@ export class ExchangeRateEndpoints {
   }
 
   listByCurrency(currency: string): Promise<ExchangeRate[]> {
-    const url = '/structures/exchangerates';
+    const url = '/metadata/exchangerates';
     const params = { currency };
     return this.requester.get(url, { params }).then(createMany);
   }

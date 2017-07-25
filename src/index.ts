@@ -1,4 +1,4 @@
-export { Identifiable } from './framework/Identifiable';
+export { HasIdentifier } from './framework/HasIdentifier';
 export { Model } from './framework/Model';
 
 export { Agent } from './structures/Agent';
