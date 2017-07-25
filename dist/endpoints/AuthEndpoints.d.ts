@@ -1,4 +1,4 @@
-import { ApiClient } from '../ApiClient';
+import { Requester } from '../framework/Requester';
 import { Credentials } from '../structures/Credentials';
 export interface LoginPayload {
     username: string;
@@ -11,8 +11,8 @@ export interface CreateUserPayload {
     agentid: string;
 }
 export declare class AuthEndpoints {
-    client: ApiClient;
-    constructor(client: ApiClient);
+    requester: Requester;
+    constructor(requester: Requester);
     login(data: LoginPayload): Promise<Credentials>;
     getToken(): Promise<Credentials>;
     createUser(data: CreateUserPayload): Promise<Credentials>;

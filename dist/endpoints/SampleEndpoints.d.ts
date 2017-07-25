@@ -1,8 +1,8 @@
-import { ApiClient } from '../ApiClient';
+import { Requester } from '../framework/Requester';
 import { Sample } from '../structures/Sample';
 export declare class SampleEndpoints {
-    client: ApiClient;
-    constructor(client: ApiClient);
+    requester: Requester;
+    constructor(requester: Requester);
     listByUser(period: string): Promise<Sample[]>;
     listByGroup(groupid: string, period: string): Promise<Sample[]>;
     listByAgent(groupid: string, agentid: string, period: string): Promise<Sample[]>;

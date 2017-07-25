@@ -1,12 +1,5 @@
 import axios from 'axios';
-import { Credentials } from './structures/Credentials';
-import { AgentEndpoints } from './endpoints/AgentEndpoints';
-import { AuthEndpoints } from './endpoints/AuthEndpoints';
-import { DeviceEndpoints } from './endpoints/DeviceEndpoints';
-import { ExchangeRateEndpoints } from './endpoints/ExchangeRateEndpoints';
-import { GroupEndpoints } from './endpoints/GroupEndpoints';
-import { MeasureEndpoints } from './endpoints/MeasureEndpoints';
-import { SampleEndpoints } from './endpoints/SampleEndpoints';
+import { Credentials } from '../structures/Credentials';
 
 export interface GetRequestConfig {
   params?: { [name: string]: any };
@@ -20,34 +13,16 @@ export interface PutRequestConfig {
   data: any;
 }
 
-export interface ApiClientConfig {
-  scheme?: string;
-}
-
-export class ApiClient {
+export class Requester {
 
   scheme: string;
   baseUrl: string;
   credentials: Credentials;
 
-  agents: AgentEndpoints;
-  auth: AuthEndpoints;
-  devices: DeviceEndpoints;
-  exchangeRates: ExchangeRateEndpoints;
-  groups: GroupEndpoints;
-  measures: MeasureEndpoints;
-  samples: SampleEndpoints;
-
-  constructor(baseUrl: string, options: ApiClientConfig = {}) {
-    this.baseUrl = baseUrl;
-    this.scheme = options.scheme || 'https';
-    this.agents = new AgentEndpoints(this);
-    this.auth = new AuthEndpoints(this);
-    this.devices = new DeviceEndpoints(this);
-    this.exchangeRates = new ExchangeRateEndpoints(this);
-    this.groups = new GroupEndpoints(this);
-    this.measures = new MeasureEndpoints(this);
-    this.samples = new SampleEndpoints(this);
+  constructor(options: Partial<Requester> = {}) {
+    this.scheme = options.scheme;
+    this.baseUrl = options.baseUrl;
+    this.credentials = options.credentials;
   }
 
   setCredentials(credentials: Credentials) {
@@ -94,3 +69,5 @@ export class ApiClient {
   }
 
 }
+
+export default Requester;

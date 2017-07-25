@@ -1,4 +1,4 @@
-import { ApiClient } from '../ApiClient';
+import { Requester } from '../framework/Requester';
 import { Group } from '../structures/Group';
 
 const createOne = result => new Group(result.group);
@@ -6,25 +6,25 @@ const createMany = result => result.groups.map(item => new Group(item));
 
 export class GroupEndpoints {
 
-  client: ApiClient;
+  requester: Requester;
 
-  constructor(client: ApiClient) {
-    this.client = client;
+  constructor(requester: Requester) {
+    this.requester = requester;
   }
 
   get(groupid: string): Promise<Group> {
     const url = `/groups/${groupid}`;
-    return this.client.get(url).then(createOne);
+    return this.requester.get(url).then(createOne);
   }
 
   update(groupid: string, data: Partial<Group>): Promise<Group> {
     const url = `/groups/${groupid}`;
-    return this.client.put(url, { data }).then(createOne);
+    return this.requester.put(url, { data }).then(createOne);
   }
 
   listByUser(): Promise<Group[]> {
     const url = '/groups';
-    return this.client.get(url).then(createMany);
+    return this.requester.get(url).then(createMany);
   }
 
 }

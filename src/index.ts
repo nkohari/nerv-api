@@ -11,6 +11,7 @@ export { NetworkData } from './structures/NetworkData';
 export { Sample } from './structures/Sample';
 export { User } from './structures/User';
 
-import { ApiClient } from './ApiClient';
+import { NervApiClient } from './NervApiClient';
+export { NervApiClient };
 
-export default ApiClient;
+export default NervApiClient;

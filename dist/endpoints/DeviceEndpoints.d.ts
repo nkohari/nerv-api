@@ -1,8 +1,8 @@
-import { ApiClient } from '../ApiClient';
+import { Requester } from '../framework/Requester';
 import { Device } from '../structures/Device';
 export declare class DeviceEndpoints {
-    client: ApiClient;
-    constructor(client: ApiClient);
+    requester: Requester;
+    constructor(requester: Requester);
     get(groupid: string, agentid: string, deviceid: string): Promise<Device>;
     update(groupid: string, agentid: string, deviceid: string, data: Partial<Device>): Promise<Device>;
     listByGroup(groupid: string): Promise<Device[]>;

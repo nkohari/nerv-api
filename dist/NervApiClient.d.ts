@@ -6,24 +6,11 @@ import { ExchangeRateEndpoints } from './endpoints/ExchangeRateEndpoints';
 import { GroupEndpoints } from './endpoints/GroupEndpoints';
 import { MeasureEndpoints } from './endpoints/MeasureEndpoints';
 import { SampleEndpoints } from './endpoints/SampleEndpoints';
-export interface GetRequestConfig {
-    params?: {
-        [name: string]: any;
-    };
-}
-export interface PostRequestConfig {
-    data: any;
-}
-export interface PutRequestConfig {
-    data: any;
-}
-export interface ApiClientConfig {
+export interface NervApiClientConfig {
     scheme?: string;
+    credentials?: Credentials;
 }
-export declare class ApiClient {
-    scheme: string;
-    baseUrl: string;
-    credentials: Credentials;
+export declare class NervApiClient {
     agents: AgentEndpoints;
     auth: AuthEndpoints;
     devices: DeviceEndpoints;
@@ -31,15 +18,8 @@ export declare class ApiClient {
     groups: GroupEndpoints;
     measures: MeasureEndpoints;
     samples: SampleEndpoints;
-    constructor(baseUrl: string, options?: ApiClientConfig);
+    private requester;
+    constructor(baseUrl: string, options?: NervApiClientConfig);
     setCredentials(credentials: Credentials): void;
-    get(path: string, config?: GetRequestConfig): Promise<any>;
-    post(path: string, config?: PostRequestConfig): Promise<any>;
-    put(path: string, config?: PutRequestConfig): Promise<any>;
-    getHeaders(): {
-        Accept: string;
-        'Content-Type': string;
-        Authorization: string;
-    };
-    getUrl(path: any): string;
 }
+export default NervApiClient;

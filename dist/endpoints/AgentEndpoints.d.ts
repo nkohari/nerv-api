@@ -1,8 +1,8 @@
-import { ApiClient } from '../ApiClient';
+import { Requester } from '../framework/Requester';
 import { Agent } from '../structures/Agent';
 export declare class AgentEndpoints {
-    client: ApiClient;
-    constructor(client: ApiClient);
+    requester: Requester;
+    constructor(requester: Requester);
     get(groupid: string, agentid: string): Promise<Agent>;
     update(groupid: string, agentid: string, data: Partial<Agent>): Promise<Agent>;
     list(): Promise<Agent[]>;

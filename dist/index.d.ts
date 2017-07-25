@@ -9,5 +9,6 @@ export { Measure } from './structures/Measure';
 export { NetworkData } from './structures/NetworkData';
 export { Sample } from './structures/Sample';
 export { User } from './structures/User';
-import { ApiClient } from './ApiClient';
-export default ApiClient;
+import { NervApiClient } from './NervApiClient';
+export { NervApiClient };
+export default NervApiClient;
