@@ -1,0 +1,27 @@
+{
+  "name": "nerv-api",
+  "version": "0.1.0",
+  "description": "nerv.io api client",
+  "engines": {
+    "node": "^6.9.0",
+    "npm": "5"
+  },
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "scripts": {
+    "build": "rimraf dist && tsc --declaration --sourceMap",
+    "clean": "rimraf dist",
+    "test": "LOG_LEVEL=fatal jest --forceExit"
+  },
+  "author": "Nate Kohari",
+  "license": "MIT",
+  "dependencies": {
+    "axios": "^0.16.2"
+  },
+  "devDependencies": {
+    "jest": "^20.0.4",
+    "nerv-tslint-rules": "github:nkohari/nerv-tslint-rules",
+    "tslint": "^5.4.3",
+    "typescript": "2.3.3"
+  }
+}
