@@ -11,7 +11,7 @@ export class SampleEndpoints {
     this.requester = requester;
   }
 
-  listByUser(period: string): Promise<Sample[]> {
+  list(period: string): Promise<Sample[]> {
     const url = '/samples';
     const params = { period };
     return this.requester.get(url, { params }).then(createMany);

@@ -22,7 +22,7 @@ export class GroupEndpoints {
     return this.requester.put(url, { data }).then(createOne);
   }
 
-  listByUser(): Promise<Group[]> {
+  list(): Promise<Group[]> {
     const url = '/groups';
     return this.requester.get(url).then(createMany);
   }
