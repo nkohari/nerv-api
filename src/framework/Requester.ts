@@ -29,7 +29,7 @@ export class Requester {
     this.credentials = credentials;
   }
 
-  get(path: string, config?: GetRequestConfig): Promise<any> {
+  get(path: string, config: GetRequestConfig = {}): Promise<any> {
     return axios({
       method: 'get',
       url: this.getUrl(path),
@@ -38,7 +38,7 @@ export class Requester {
     }).then(response => response.data);
   }
 
-  post(path: string, config?: PostRequestConfig): Promise<any> {
+  post(path: string, config: PostRequestConfig): Promise<any> {
     return axios({
       method: 'post',
       url: this.getUrl(path),
@@ -47,7 +47,7 @@ export class Requester {
     }).then(response => response.data);
   }
 
-  put(path: string, config?: PutRequestConfig): Promise<any> {
+  put(path: string, config: PutRequestConfig): Promise<any> {
     return axios({
       method: 'put',
       url: this.getUrl(path),
