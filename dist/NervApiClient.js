@@ -1,6 +1,5 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-var tslib_1 = require("tslib");
 var Requester_1 = require("./framework/Requester");
 var AgentEndpoints_1 = require("./endpoints/AgentEndpoints");
 var AuthEndpoints_1 = require("./endpoints/AuthEndpoints");
@@ -12,7 +11,11 @@ var SampleEndpoints_1 = require("./endpoints/SampleEndpoints");
 var NervApiClient = (function () {
     function NervApiClient(baseUrl, options) {
         if (options === void 0) { options = {}; }
-        this.requester = new Requester_1.Requester(tslib_1.__assign({ baseUrl: baseUrl }, options));
+        this.requester = new Requester_1.Requester({
+            baseUrl: baseUrl,
+            scheme: options.scheme || 'https',
+            credentials: options.credentials
+        });
         this.agents = new AgentEndpoints_1.AgentEndpoints(this.requester);
         this.auth = new AuthEndpoints_1.AuthEndpoints(this.requester);
         this.devices = new DeviceEndpoints_1.DeviceEndpoints(this.requester);
