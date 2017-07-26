@@ -1,18 +1,17 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-var Requester_1 = require("./framework/Requester");
-var AgentEndpoints_1 = require("./endpoints/AgentEndpoints");
-var AuthEndpoints_1 = require("./endpoints/AuthEndpoints");
-var DeviceEndpoints_1 = require("./endpoints/DeviceEndpoints");
-var ExchangeRateEndpoints_1 = require("./endpoints/ExchangeRateEndpoints");
-var GroupEndpoints_1 = require("./endpoints/GroupEndpoints");
-var MeasureEndpoints_1 = require("./endpoints/MeasureEndpoints");
-var SampleEndpoints_1 = require("./endpoints/SampleEndpoints");
-var NervApiClient = (function () {
-    function NervApiClient(baseUrl, options) {
-        if (options === void 0) { options = {}; }
+const Requester_1 = require("./framework/Requester");
+const AgentEndpoints_1 = require("./endpoints/AgentEndpoints");
+const AuthEndpoints_1 = require("./endpoints/AuthEndpoints");
+const DeviceEndpoints_1 = require("./endpoints/DeviceEndpoints");
+const ExchangeRateEndpoints_1 = require("./endpoints/ExchangeRateEndpoints");
+const GroupEndpoints_1 = require("./endpoints/GroupEndpoints");
+const MeasureEndpoints_1 = require("./endpoints/MeasureEndpoints");
+const SampleEndpoints_1 = require("./endpoints/SampleEndpoints");
+class NervApiClient {
+    constructor(baseUrl, options = {}) {
         this.requester = new Requester_1.Requester({
-            baseUrl: baseUrl,
+            baseUrl,
             scheme: options.scheme || 'https',
             credentials: options.credentials
         });
@@ -24,11 +23,10 @@ var NervApiClient = (function () {
         this.measures = new MeasureEndpoints_1.MeasureEndpoints(this.requester);
         this.samples = new SampleEndpoints_1.SampleEndpoints(this.requester);
     }
-    NervApiClient.prototype.setCredentials = function (credentials) {
+    setCredentials(credentials) {
         this.requester.setCredentials(credentials);
-    };
-    return NervApiClient;
-}());
+    }
+}
 exports.NervApiClient = NervApiClient;
 exports.default = NervApiClient;
 //# sourceMappingURL=NervApiClient.js.map

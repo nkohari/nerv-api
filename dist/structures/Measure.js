@@ -1,8 +1,7 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-var Measure = (function () {
-    function Measure(data) {
-        if (data === void 0) { data = {}; }
+class Measure {
+    constructor(data = {}) {
         this.id = data.id;
         this.time = new Date(data.time);
         this.groupid = data.groupid;
@@ -18,7 +17,7 @@ var Measure = (function () {
         this.fanrpm = data.fanrpm;
         this.fanpercent = data.fanpercent;
     }
-    Measure.prototype.toJSON = function () {
+    toJSON() {
         return {
             id: this.id,
             time: this.time,
@@ -35,8 +34,7 @@ var Measure = (function () {
             fanrpm: this.fanrpm,
             fanpercent: this.fanpercent
         };
-    };
-    return Measure;
-}());
+    }
+}
 exports.Measure = Measure;
 //# sourceMappingURL=Measure.js.map

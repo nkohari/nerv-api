@@ -1,8 +1,7 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-var Sample = (function () {
-    function Sample(data) {
-        if (data === void 0) { data = {}; }
+class Sample {
+    constructor(data = {}) {
         this.id = data.id;
         this.time = new Date(data.time);
         this.groupid = data.groupid;
@@ -19,7 +18,7 @@ var Sample = (function () {
         this.fanrpm = data.fanrpm;
         this.fanpercent = data.fanpercent;
     }
-    Sample.prototype.toJSON = function () {
+    toJSON() {
         return {
             id: this.id,
             time: this.time,
@@ -37,8 +36,7 @@ var Sample = (function () {
             fanrpm: this.fanrpm,
             fanpercent: this.fanpercent
         };
-    };
-    return Sample;
-}());
+    }
+}
 exports.Sample = Sample;
 //# sourceMappingURL=Sample.js.map

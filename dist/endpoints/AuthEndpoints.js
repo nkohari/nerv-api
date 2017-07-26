@@ -1,22 +1,21 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-var Credentials_1 = require("../structures/Credentials");
-var User_1 = require("../structures/User");
-var createOne = function (result) { return new Credentials_1.Credentials({ token: result.token, user: new User_1.User(result.user) }); };
-var AuthEndpoints = (function () {
-    function AuthEndpoints(requester) {
+const Credentials_1 = require("../structures/Credentials");
+const User_1 = require("../structures/User");
+const createOne = result => new Credentials_1.Credentials({ token: result.token, user: new User_1.User(result.user) });
+class AuthEndpoints {
+    constructor(requester) {
         this.requester = requester;
     }
-    AuthEndpoints.prototype.login = function (data) {
-        return this.requester.post('/auth', { data: data }).then(createOne);
-    };
-    AuthEndpoints.prototype.getToken = function () {
+    login(data) {
+        return this.requester.post('/auth', { data }).then(createOne);
+    }
+    getToken() {
         return this.requester.get('/auth').then(createOne);
-    };
-    AuthEndpoints.prototype.createUser = function (data) {
-        return this.requester.post('/users', { data: data }).then(createOne);
-    };
-    return AuthEndpoints;
-}());
+    }
+    createUser(data) {
+        return this.requester.post('/users', { data }).then(createOne);
+    }
+}
 exports.AuthEndpoints = AuthEndpoints;
 //# sourceMappingURL=AuthEndpoints.js.map

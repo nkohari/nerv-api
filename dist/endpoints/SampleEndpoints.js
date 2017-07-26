@@ -1,32 +1,31 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-var Sample_1 = require("../structures/Sample");
-var createMany = function (result) { return result.samples.map(function (item) { return new Sample_1.Sample(item); }); };
-var SampleEndpoints = (function () {
-    function SampleEndpoints(requester) {
+const Sample_1 = require("../structures/Sample");
+const createMany = result => result.samples.map(item => new Sample_1.Sample(item));
+class SampleEndpoints {
+    constructor(requester) {
         this.requester = requester;
     }
-    SampleEndpoints.prototype.list = function (period) {
-        var url = '/samples';
-        var params = { period: period };
-        return this.requester.get(url, { params: params }).then(createMany);
-    };
-    SampleEndpoints.prototype.listByGroup = function (groupid, period) {
-        var url = "/groups/" + groupid + "/samples";
-        var params = { period: period };
-        return this.requester.get(url, { params: params }).then(createMany);
-    };
-    SampleEndpoints.prototype.listByAgent = function (groupid, agentid, period) {
-        var url = "/groups/" + groupid + "/agents/" + agentid + "/samples";
-        var params = { period: period };
-        return this.requester.get(url, { params: params }).then(createMany);
-    };
-    SampleEndpoints.prototype.listByDevice = function (groupid, agentid, deviceid, period) {
-        var url = "/groups/" + groupid + "/agents/" + agentid + "/devices/" + deviceid + "/samples";
-        var params = { period: period };
-        return this.requester.get(url, { params: params }).then(createMany);
-    };
-    return SampleEndpoints;
-}());
+    list(period) {
+        const url = '/samples';
+        const params = { period };
+        return this.requester.get(url, { params }).then(createMany);
+    }
+    listByGroup(groupid, period) {
+        const url = `/groups/${groupid}/samples`;
+        const params = { period };
+        return this.requester.get(url, { params }).then(createMany);
+    }
+    listByAgent(groupid, agentid, period) {
+        const url = `/groups/${groupid}/agents/${agentid}/samples`;
+        const params = { period };
+        return this.requester.get(url, { params }).then(createMany);
+    }
+    listByDevice(groupid, agentid, deviceid, period) {
+        const url = `/groups/${groupid}/agents/${agentid}/devices/${deviceid}/samples`;
+        const params = { period };
+        return this.requester.get(url, { params }).then(createMany);
+    }
+}
 exports.SampleEndpoints = SampleEndpoints;
 //# sourceMappingURL=SampleEndpoints.js.map

@@ -1,53 +1,50 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-var axios_1 = require("axios");
-var Requester = (function () {
-    function Requester(options) {
-        if (options === void 0) { options = {}; }
+const axios_1 = require("axios");
+class Requester {
+    constructor(options = {}) {
         this.scheme = options.scheme;
         this.baseUrl = options.baseUrl;
         this.credentials = options.credentials;
     }
-    Requester.prototype.setCredentials = function (credentials) {
+    setCredentials(credentials) {
         this.credentials = credentials;
-    };
-    Requester.prototype.get = function (path, config) {
-        if (config === void 0) { config = {}; }
+    }
+    get(path, config = {}) {
         return axios_1.default({
             method: 'get',
             url: this.getUrl(path),
             headers: this.getHeaders(),
             params: config.params
-        }).then(function (response) { return response.data; });
-    };
-    Requester.prototype.post = function (path, config) {
+        }).then(response => response.data);
+    }
+    post(path, config) {
         return axios_1.default({
             method: 'post',
             url: this.getUrl(path),
             headers: this.getHeaders(),
             data: config.data
-        }).then(function (response) { return response.data; });
-    };
-    Requester.prototype.put = function (path, config) {
+        }).then(response => response.data);
+    }
+    put(path, config) {
         return axios_1.default({
             method: 'put',
             url: this.getUrl(path),
             headers: this.getHeaders(),
             data: config.data
-        }).then(function (response) { return response.data; });
-    };
-    Requester.prototype.getHeaders = function () {
+        }).then(response => response.data);
+    }
+    getHeaders() {
         return {
             Accept: 'application/json',
             'Content-Type': 'application/json',
-            Authorization: this.credentials ? "Bearer " + this.credentials.token : null
+            Authorization: this.credentials ? `Bearer ${this.credentials.token}` : null
         };
-    };
-    Requester.prototype.getUrl = function (path) {
-        return this.scheme + "://" + this.baseUrl + path;
-    };
-    return Requester;
-}());
+    }
+    getUrl(path) {
+        return `${this.scheme}://${this.baseUrl}${path}`;
+    }
+}
 exports.Requester = Requester;
 exports.default = Requester;
 //# sourceMappingURL=Requester.js.map

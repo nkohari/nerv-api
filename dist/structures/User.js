@@ -1,18 +1,13 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-var tslib_1 = require("tslib");
-var Model_1 = require("../framework/Model");
-var User = (function (_super) {
-    tslib_1.__extends(User, _super);
-    function User(data) {
-        if (data === void 0) { data = {}; }
-        var _this = _super.call(this, data) || this;
-        _this.username = data.username;
-        _this.email = data.email;
-        _this.currency = data.currency;
-        return _this;
+const Model_1 = require("../framework/Model");
+class User extends Model_1.Model {
+    constructor(data = {}) {
+        super(data);
+        this.username = data.username;
+        this.email = data.email;
+        this.currency = data.currency;
     }
-    return User;
-}(Model_1.Model));
+}
 exports.User = User;
 //# sourceMappingURL=User.js.map

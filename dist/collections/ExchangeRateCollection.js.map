@@ -1,0 +1,1 @@
+{"version":3,"file":"ExchangeRateCollection.js","sourceRoot":"","sources":["../../src/collections/ExchangeRateCollection.ts"],"names":[],"mappings":";;AACA,wDAAqD;AAErD,4BAAoC,SAAQ,uBAAwB;IAElE,GAAG,CAAC,MAAc,EAAE,QAAgB;QAClC,MAAM,CAAC,IAAI,CAAC,IAAI,CAAC,IAAI,IAAI,IAAI,CAAC,MAAM,KAAK,MAAM,IAAI,IAAI,CAAC,QAAQ,KAAK,QAAQ,CAAC,CAAC;IACjF,CAAC;CAEF;AAND,wDAMC"}
